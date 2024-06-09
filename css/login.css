@@ -1,0 +1,74 @@
+div.errorMessage{
+	text-align: center;
+	color: white;
+	font-size: 18px;
+	margin-top: 10px;
+}
+body{
+	background: url('../pics/login-bg.jpeg') no-repeat center center fixed;
+	background-size: cover ;
+	font-family: "press Start 2P";
+	
+} 
+
+div.loginHeader{
+	margin-top: 40px;
+	margin-bottom: 80px;
+	text-align: center;
+
+}
+
+div.loginHeader h1{
+
+	font-size: 60px;
+	color: #fdb44b ;
+	padding: 0px;
+	margin: 0px;
+
+}
+
+div.loginHeader h3{
+	color:#f1b963;
+	font-size: 40px;
+	padding: 0px;
+	margin: 10px;
+	margin-top: 10px;
+}
+
+div.loginBody form{
+	margin: auto;
+	width: 350px;
+	background: rgba(0, 0, 0, .5);
+	padding: 50px;
+	border: 2px solid #a2a8d3;
+	border-radius: 10px;
+}
+
+div.loginInput{
+	margin-top: 15px;
+	text-align: center;
+}
+div.loginInput label{
+	display:block;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+	margin-bottom: 20px;
+	font-size: 20px;
+}
+div.loginInput input{
+	width: 100%;
+	height: 20px;
+	border: 2px solid #fdb44b ;
+	font-size: 15px;
+	padding: 5px;
+	text-align: center;
+	font-style: italic;
+}
+div.loginInput button{
+	font-size: 15px;
+	padding: 10px 20px;
+	background: #00204a;
+	color: white;
+}
+

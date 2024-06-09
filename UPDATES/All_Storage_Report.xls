@@ -1,0 +1,236 @@
+array(6) {
+  [0]=>
+  array(18) {
+    ["source"]=>
+    string(9) "equipment"
+    ["equip_id"]=>
+    string(2) "36"
+    ["equip_name"]=>
+    string(9) "Hot Plate"
+    ["brand_model"]=>
+    string(10) "brandZ-123"
+    ["img"]=>
+    string(27) "equipment - 1712489859.jpeg"
+    ["quantity"]=>
+    string(2) "12"
+    ["created_at"]=>
+    string(19) "2024-04-07 06:01:11"
+    ["created_by"]=>
+    string(2) "53"
+    ["updated_at"]=>
+    string(19) "2024-04-07 06:01:11"
+    ["status"]=>
+    string(15) "Not Serviceable"
+    ["serial_num"]=>
+    string(4) "1234"
+    ["maintenance"]=>
+    string(19) "2024-06-26 08:33:00"
+    ["user_id"]=>
+    string(2) "53"
+    ["name"]=>
+    string(4) "Lyka"
+    ["email"]=>
+    string(15) "lyka@cdm.edu.ph"
+    ["password"]=>
+    string(60) "$2y$10$1B.Dbkvp9VvNQx0lNCEOCOqXT1LcPzI0UqGtBGJmFYBthGRD718kC"
+    ["user_created_at"]=>
+    string(19) "2024-04-05 14:30:11"
+    ["user_updated_at"]=>
+    string(19) "2024-04-05 14:30:11"
+  }
+  [1]=>
+  array(18) {
+    ["source"]=>
+    string(9) "equipment"
+    ["equip_id"]=>
+    string(2) "37"
+    ["equip_name"]=>
+    string(16) "Test Tube Holder"
+    ["brand_model"]=>
+    string(11) "brandY-7889"
+    ["img"]=>
+    string(26) "equipment - 1712489848.jpg"
+    ["quantity"]=>
+    string(1) "5"
+    ["created_at"]=>
+    string(19) "2024-04-07 08:06:20"
+    ["created_by"]=>
+    string(2) "53"
+    ["updated_at"]=>
+    string(19) "2024-04-07 08:06:20"
+    ["status"]=>
+    string(11) "Serviceable"
+    ["serial_num"]=>
+    string(4) "2345"
+    ["maintenance"]=>
+    string(19) "2024-08-22 09:29:00"
+    ["user_id"]=>
+    string(2) "53"
+    ["name"]=>
+    string(4) "Lyka"
+    ["email"]=>
+    string(15) "lyka@cdm.edu.ph"
+    ["password"]=>
+    string(60) "$2y$10$1B.Dbkvp9VvNQx0lNCEOCOqXT1LcPzI0UqGtBGJmFYBthGRD718kC"
+    ["user_created_at"]=>
+    string(19) "2024-04-05 14:30:11"
+    ["user_updated_at"]=>
+    string(19) "2024-04-05 14:30:11"
+  }
+  [2]=>
+  array(18) {
+    ["source"]=>
+    string(5) "tools"
+    ["equip_id"]=>
+    string(2) "18"
+    ["equip_name"]=>
+    string(6) "Hammer"
+    ["brand_model"]=>
+    string(10) "brandY-123"
+    ["img"]=>
+    string(22) "tools - 1712474221.jpg"
+    ["quantity"]=>
+    string(2) "12"
+    ["created_at"]=>
+    string(19) "2024-04-07 05:57:24"
+    ["created_by"]=>
+    string(2) "53"
+    ["updated_at"]=>
+    string(19) "2024-04-07 05:57:24"
+    ["status"]=>
+    string(14) "Good Condition"
+    ["serial_num"]=>
+    string(4) "1234"
+    ["maintenance"]=>
+    string(19) "0000-00-00 00:00:00"
+    ["user_id"]=>
+    string(2) "53"
+    ["name"]=>
+    string(4) "Lyka"
+    ["email"]=>
+    string(15) "lyka@cdm.edu.ph"
+    ["password"]=>
+    string(60) "$2y$10$1B.Dbkvp9VvNQx0lNCEOCOqXT1LcPzI0UqGtBGJmFYBthGRD718kC"
+    ["user_created_at"]=>
+    string(19) "2024-04-05 14:30:11"
+    ["user_updated_at"]=>
+    string(19) "2024-04-05 14:30:11"
+  }
+  [3]=>
+  array(18) {
+    ["source"]=>
+    string(5) "tools"
+    ["equip_id"]=>
+    string(2) "20"
+    ["equip_name"]=>
+    string(7) "Dropper"
+    ["brand_model"]=>
+    string(10) "brandY-123"
+    ["img"]=>
+    string(22) "tools - 1712473727.jpg"
+    ["quantity"]=>
+    string(2) "10"
+    ["created_at"]=>
+    string(19) "2024-04-07 09:08:47"
+    ["created_by"]=>
+    string(2) "53"
+    ["updated_at"]=>
+    string(19) "2024-04-07 09:08:47"
+    ["status"]=>
+    string(14) "Good Condition"
+    ["serial_num"]=>
+    string(3) "454"
+    ["maintenance"]=>
+    string(19) "2024-04-07 14:00:00"
+    ["user_id"]=>
+    string(2) "53"
+    ["name"]=>
+    string(4) "Lyka"
+    ["email"]=>
+    string(15) "lyka@cdm.edu.ph"
+    ["password"]=>
+    string(60) "$2y$10$1B.Dbkvp9VvNQx0lNCEOCOqXT1LcPzI0UqGtBGJmFYBthGRD718kC"
+    ["user_created_at"]=>
+    string(19) "2024-04-05 14:30:11"
+    ["user_updated_at"]=>
+    string(19) "2024-04-05 14:30:11"
+  }
+  [4]=>
+  array(18) {
+    ["source"]=>
+    string(5) "tools"
+    ["equip_id"]=>
+    string(2) "21"
+    ["equip_name"]=>
+    string(11) "Screwdriver"
+    ["brand_model"]=>
+    string(11) "brandZ-1233"
+    ["img"]=>
+    string(22) "tools - 1712475007.jpg"
+    ["quantity"]=>
+    string(2) "34"
+    ["created_at"]=>
+    string(19) "2024-04-07 09:19:16"
+    ["created_by"]=>
+    string(2) "53"
+    ["updated_at"]=>
+    string(19) "2024-04-07 09:19:16"
+    ["status"]=>
+    string(12) "Needs Relief"
+    ["serial_num"]=>
+    string(4) "2340"
+    ["maintenance"]=>
+    string(19) "2024-04-20 00:00:00"
+    ["user_id"]=>
+    string(2) "53"
+    ["name"]=>
+    string(4) "Lyka"
+    ["email"]=>
+    string(15) "lyka@cdm.edu.ph"
+    ["password"]=>
+    string(60) "$2y$10$1B.Dbkvp9VvNQx0lNCEOCOqXT1LcPzI0UqGtBGJmFYBthGRD718kC"
+    ["user_created_at"]=>
+    string(19) "2024-04-05 14:30:11"
+    ["user_updated_at"]=>
+    string(19) "2024-04-05 14:30:11"
+  }
+  [5]=>
+  array(18) {
+    ["source"]=>
+    string(5) "tools"
+    ["equip_id"]=>
+    string(2) "22"
+    ["equip_name"]=>
+    string(4) "were"
+    ["brand_model"]=>
+    string(5) "sdfsd"
+    ["img"]=>
+    string(22) "tools - 1712628663.png"
+    ["quantity"]=>
+    string(2) "33"
+    ["created_at"]=>
+    string(19) "2024-04-09 04:11:03"
+    ["created_by"]=>
+    string(2) "53"
+    ["updated_at"]=>
+    string(19) "2024-04-09 04:11:03"
+    ["status"]=>
+    string(14) "Good Condition"
+    ["serial_num"]=>
+    string(5) "12345"
+    ["maintenance"]=>
+    string(19) "2024-04-30 00:00:00"
+    ["user_id"]=>
+    string(2) "53"
+    ["name"]=>
+    string(4) "Lyka"
+    ["email"]=>
+    string(15) "lyka@cdm.edu.ph"
+    ["password"]=>
+    string(60) "$2y$10$1B.Dbkvp9VvNQx0lNCEOCOqXT1LcPzI0UqGtBGJmFYBthGRD718kC"
+    ["user_created_at"]=>
+    string(19) "2024-04-05 14:30:11"
+    ["user_updated_at"]=>
+    string(19) "2024-04-05 14:30:11"
+  }
+}

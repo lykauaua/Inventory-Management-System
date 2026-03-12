@@ -159,7 +159,8 @@
 
     </div>
 </div>
-
+<?php include('partials/app-scripts.php'); ?>
+<?php include('partials/table-scripts.php');?>
 <script>
    function script () {
     var vm = this;
@@ -260,89 +261,92 @@
                     
                 })
         }
-        this.showEditDialog = function(ID){
+this.showEditDialog = function(ID){
+    $.get('database/get-equip.php', {ID: ID}, function(equipmentDetails) {
+        console.log(equipmentDetails);
 
-            $.get('database/get-equip.php', {ID: ID}, function(equipmentDetails) {
-                console.log(equipmentDetails);
+        // Ensure date values are properly formatted
+        let maintenanceDate = equipmentDetails.maintenance ? new Date(equipmentDetails.maintenance).toISOString().split('T')[0] : '';
+        let acquisitionDate = equipmentDetails.acquisition_date ? new Date(equipmentDetails.acquisition_date).toISOString().split('T')[0] : '';
 
-       BootstrapDialog.confirm({
-                title:'Updating Equipment: <strong>'+ equipmentDetails.equip_name +'</strong>',
-
-                message:  '<form  action="database/addE.php" method="POST"enctype = "multipart/form-data" id="editEquipForm">\
+        BootstrapDialog.confirm({
+            title:'Updating Equipment: <strong>'+ equipmentDetails.equip_name +'</strong>',
+            message:  '<form action="database/addE.php" method="POST" enctype="multipart/form-data" id="editEquipForm">\
                 <div class="appFormInputContainer">\
-                        <label for="serial_num" class="appFormAtt" >Serial No.</label>\
-                        <input type="number" id="serial_num" name="serial_num" placeholder="Enter the serial no. of the equipment.." class="appFormInput" value="'+ equipmentDetails.serial_num +'">\
+                    <label for="serial_num" class="appFormAtt">Serial No.</label>\
+                    <input type="number" id="serial_num" name="serial_num" placeholder="Enter the serial no. of the equipment.." class="appFormInput" value="'+ equipmentDetails.serial_num +'">\
+                </div>\
                 <div class="appFormInputContainer">\
-                        <label for="equip_name" class="appFormAtt" >Equipment Name</label>\
-                        <input type="text" id="equip_name" name="equip_name" placeholder="Enter equipment name.. eg. Reagent Flasks " class="appFormInput" value="'+ equipmentDetails.equip_name +'">\
-                    </div>\
-                    <div class="appFormInputContainer">\
-                                <label for="quantity" class="appFormAtt" >Quantity</label>\
-                                <input type="number" id="quantity" name="quantity" placeholder="Enter the quantity of the equipment" class="appFormInput" value="'+ equipmentDetails.quantity +'">\
-                            </div>\
-                                <div class="appFormInputContainer">\
-                            <label for="status" class="appFormAtt">Status</label>\
-                            <select class="dropDownStatus" name="status" id="status">\
-                                <option selected disabled>Choose a status</option>\
-                                <option style="padding: 4px 4px; background: lightgreen;"\
-                                '+ (equipmentDetails.status == "Serviceable" ? "selected" : "") +'>Serviceable</option>\
-                                <option style="padding: 4px 4px; background: orange;"\
-                                '+ (equipmentDetails.status == "Not Serviceable" ? "selected" : "") +'>Not Serviceable</option>\
-                            </select>\
-                            <input type="hidden" name="prev_status" value="'+ equipmentDetails.status +'">\
-                            </div>\
-                            <div class="appFormInputContainer">\
-                            <label for="remarks" class="appFormAtt">Remarks</label>\
-                            <select id="remarksSelect" name="remarksSelect" class="appFormInputRe" onchange="toggleRemarksInput()" style="margin-right: 10px;">\
-                            <option value="input" style="padding: 4px 4px; background: orange;">Add remarks</option>\
-                                <option value="noRemarks" style="padding: 4px 4px; background: lightgreen;">No Remarks</option>\
-                            </select>\
-                            <input type="text" id="remarksInput" name="remarksInput" placeholder="Add remarks" class="appFormInputRe" required style="display: inline;" value="'+ equipmentDetails.remarks +'"/>\
-                            \
-                        </div>\
-                        <div class="appFormInputContainer">\
-                                <label for="maintenance" class="appFormAtt" >Maintenance Date:</label>\
-                                <input type="datetime-local" name="maintenance" class="form-control appFormInput" placeholder="Select date" value="'+ equipmentDetails.maintenance +'">\
-                            </div>\
-                            <div class="appFormInputContainer">\
-                                <label for="brand_model" class="appFormAtt" >Brand Model</label>\
-                                <input type="text" id="brand_model" name="brand_model" class="appFormInput" style="width:30%;" placeholder=" brandX-1234" value="'+ equipmentDetails.brand_model +'">\
-                                <label for="location" class="appFormAtt" >Location</label>\
-                                <input type="text" id="location" name="location" placeholder="Eg. CpE Lab" class="appFormInput"style="width:30%;" value="'+ equipmentDetails.location +'">\
-                               <div class="appFormInputContainer" id="img">\
-                                    <label for="img" class="appFormAtt">Equipment Image</label>\
-                                    <input type="file" name="img" id="editEquipImg" required>\
-                                    <input type="hidden" name="prev_img" value="'+ equipmentDetails.img +'" required>\
-                                </div>\
-                            <input type = "hidden" name ="equipid" value = "'+equipmentDetails.ID +'" >\
-                            <input type = "submit" value = "submit" id="editEquipSubmitBtn" class="hidden">\
-                            <form>\
-                            ',
-                            callback: function(isUpdate){
-                                if(isUpdate){ // When user hits the ok button on the confirm console
-                                    var imgInput = document.getElementById('editEquipImg');
-                                    if(imgInput.files.length === 0) {
-                                        // If image input is empty, show an alert and prevent passing
-                                        BootstrapDialog.alert({
-                                            type: BootstrapDialog.TYPE_DANGER,
-                                            message: "Please select an image.",
-                                            callback: function(){
-                                                // Close the DANGER dialog and return to the update form
-                                                return; // Prevent the dialog from closing
-                                            }
-                                        });
-                                        return false; // Prevent passing
-                                    } else {
-                                        // If image input is not empty, proceed with form submission
-                                        document.getElementById('editEquipSubmitBtn').click();
-                                    }
-                                }
+                    <label for="equip_name" class="appFormAtt">Equipment Name</label>\
+                    <input type="text" id="equip_name" name="equip_name" placeholder="Enter equipment name.. eg. Reagent Flasks " class="appFormInput" value="'+ equipmentDetails.equip_name +'">\
+                </div>\
+                <div class="appFormInputContainer">\
+                    <label for="quantity" class="appFormAtt">Quantity</label>\
+                    <input type="number" id="quantity" name="quantity" placeholder="Enter the quantity of the equipment" class="appFormInput" value="'+ equipmentDetails.quantity +'">\
+                </div>\
+                <div class="appFormInputContainer">\
+                    <label for="status" class="appFormAtt">Status</label>\
+                    <select class="dropDownStatus" name="status" id="status">\
+                        <option selected disabled>Choose a status</option>\
+                        <option style="padding: 4px 4px; background: lightgreen;"\
+                        '+ (equipmentDetails.status == "Serviceable" ? "selected" : "") +'>Serviceable</option>\
+                        <option style="padding: 4px 4px; background: orange;"\
+                        '+ (equipmentDetails.status == "Not Serviceable" ? "selected" : "") +'>Not Serviceable</option>\
+                    </select>\
+                    <input type="hidden" name="prev_status" value="'+ equipmentDetails.status +'">\
+                </div>\
+                <div class="appFormInputContainer">\
+                    <label for="remarks" class="appFormAtt">Remarks</label>\
+                    <select id="remarksSelect" name="remarksSelect" class="appFormInputRe" onchange="toggleRemarksInput()" style="margin-right: 10px;">\
+                        <option value="input" style="padding: 4px 4px; background: orange;">Add remarks</option>\
+                        <option value="noRemarks" style="padding: 4px 4px; background: lightgreen;">No Remarks</option>\
+                    </select>\
+                    <input type="text" id="remarksInput" name="remarksInput" placeholder="Add remarks" class="appFormInputRe" required style="display: inline;" value="'+ equipmentDetails.remarks +'"/>\
+                </div>\
+                <div class="appFormInputContainer">\
+                    <label for="maintenance" class="appFormAtt">Maintenance Date:</label>\
+                    <input type="date" id="maintenance" name="maintenance" class="form-control appFormInput" placeholder="Select date" value="' + maintenanceDate + '">\
+                    <label for="acquisition_date" class="appFormAtt">Acquisition Date:</label>\
+                    <input type="date" id="acquisition_date" name="acquisition_date" class="form-control appFormInput" placeholder="Select date" value="' + acquisitionDate + '">\
+                </div>\
+                <div class="appFormInputContainer">\
+                    <label for="brand_model" class="appFormAtt">Brand Model</label>\
+                    <input type="text" id="brand_model" name="brand_model" class="appFormInput" style="width:30%;" placeholder=" brandX-1234" value="'+ equipmentDetails.brand_model +'">\
+                    <label for="location" class="appFormAtt">Location</label>\
+                    <input type="text" id="location" name="location" placeholder="Eg. CpE Lab" class="appFormInput" style="width:30%;" value="'+ equipmentDetails.location +'">\
+                </div>\
+                <div class="appFormInputContainer" id="img">\
+                    <label for="img" class="appFormAtt">Equipment Image</label>\
+                    <input type="file" name="img" id="editEquipImg" required>\
+                    <input type="hidden" name="prev_img" value="'+ equipmentDetails.img +'" required>\
+                </div>\
+                <input type="hidden" name="equipid" value="'+ equipmentDetails.ID +'">\
+                <input type="submit" value="submit" id="editEquipSubmitBtn" class="hidden">\
+            </form>',
+            callback: function(isUpdate){
+                if(isUpdate){ // When user hits the ok button on the confirm console
+                    var imgInput = document.getElementById('editEquipImg');
+                    if(imgInput.files.length === 0) {
+                        // If image input is empty, show an alert and prevent passing
+                        BootstrapDialog.alert({
+                            type: BootstrapDialog.TYPE_DANGER,
+                            message: "Please select an image.",
+                            callback: function(){
+                                // Close the DANGER dialog and return to the update form
+                                return; // Prevent the dialog from closing
                             }
                         });
-                
-            },'json'); 
-                           
-        }
+                        return false; // Prevent passing
+                    } else {
+                        // If image input is not empty, proceed with form submission
+                        document.getElementById('editEquipSubmitBtn').click();
+                    }
+                }
+            }
+        });
+    }, 'json'); 
+}
+
 
 
         this.initialize = function(){
@@ -353,8 +357,7 @@
     var script = new script;
     script.initialize();
 </script>
-<?php include('partials/app-scripts.php'); ?>
-<?php include('partials/table-scripts.php');?>
+
 <script>
   $(document).ready( function () {
     $('#equipTable').DataTable();

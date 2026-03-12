@@ -44,11 +44,12 @@
                                             <th>Name</th>
                                             <th>Quantity</th>
                                             <th>Brand Model</th>
-                                            <th>Created By</th>
+                                            <th>Acquisition Date</th>
                                             <th>Location</th>
                                             <th>Remarks</th>
                                             <th>Status</th>
                                             <th>Maintenance</th>
+                                            <th>Created By</th>
                                         
                                         </tr>
                                     </thead>
@@ -71,22 +72,7 @@
                                             <td class="equip_name"><?php echo $row['equip_name'] ?></td>
                                             <td class="quantity"><?php echo $row['quantity'] ?></td>
                                             <td class="brand_model"><?php echo $row['brand_model'] ?></td>
-                                            <td>
-                                                <?php 
-                                                $equipId = $row['created_by'];
-                                                $stmt = $connect->prepare("SELECT * FROM users WHERE id = ?");
-                                                $stmt->bind_param("i", $equipId);
-                                                if ($stmt->execute()) {
-                                                    $result_user = $stmt->get_result();
-                                                    if ($result_user->num_rows > 0) {
-                                                        $user_row = $result_user->fetch_assoc();
-                                                        echo $user_row['name'];
-                                                    } else {
-                                                        echo "User not found"; 
-                                                    }
-                                                }
-                                                ?>
-                                            </td>
+                                            <td><?php echo $row['acquisition_date'] ?></td>
                                             <td class= "location" style="font-weight: bold;"><?php echo $row['location'] ?></td>
                                             <td class="remarks">
                                                 <?php if ($row['remarks'] == 'No Remarks'): ?>
@@ -107,7 +93,25 @@
                                             </td>
                                             
                                             <td><?php echo $row['maintenance'] ?></td>
-                                        </tr> 
+
+                                            <td>
+                                                <?php 
+                                                $equipId = $row['created_by'];
+                                                $stmt = $connect->prepare("SELECT * FROM users WHERE id = ?");
+                                                $stmt->bind_param("i", $equipId);
+                                                if ($stmt->execute()) {
+                                                    $result_user = $stmt->get_result();
+                                                    if ($result_user->num_rows > 0) {
+                                                        $user_row = $result_user->fetch_assoc();
+                                                        echo $user_row['name'];
+                                                    } else {
+                                                        echo "User not found"; 
+                                                    }
+                                                }
+                                                ?>
+                                            </td>
+                                        </tr>
+
                                         <?php
                                         } 
                                         ?>
@@ -129,22 +133,8 @@
                                             <td class="equip_name"><?php echo $row['equip_name'] ?></td>
                                             <td class="quantity"><?php echo $row['quantity'] ?></td>
                                             <td class="brand_model"><?php echo $row['brand_model'] ?></td>
-                                            <td>
-                                                <?php 
-                                                $equipId = $row['created_by'];
-                                                $stmt = $connect->prepare("SELECT * FROM users WHERE id = ?");
-                                                $stmt->bind_param("i", $equipId);
-                                                if ($stmt->execute()) {
-                                                    $result_user = $stmt->get_result();
-                                                    if ($result_user->num_rows > 0) {
-                                                        $user_row = $result_user->fetch_assoc();
-                                                        echo $user_row['name'];
-                                                    } else {
-                                                        echo "User not found"; 
-                                                    }
-                                                }
-                                                ?>
-                                            </td>
+                                            <td><?php echo $row['acquisition_date'] ?></td>
+                                            
                                              <td class= "location" style="font-weight: bold;"><?php echo $row['location'] ?></td>
                                             
                                             <td class="remarks">
@@ -166,6 +156,22 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td><?php echo $row['maintenance'] ?></td>
+                                            <td>
+                                                <?php 
+                                                $equipId = $row['created_by'];
+                                                $stmt = $connect->prepare("SELECT * FROM users WHERE id = ?");
+                                                $stmt->bind_param("i", $equipId);
+                                                if ($stmt->execute()) {
+                                                    $result_user = $stmt->get_result();
+                                                    if ($result_user->num_rows > 0) {
+                                                        $user_row = $result_user->fetch_assoc();
+                                                        echo $user_row['name'];
+                                                    } else {
+                                                        echo "User not found"; 
+                                                    }
+                                                }
+                                                ?>
+                                            </td>
                                         </tr> 
                                         <?php 
                                         } 
@@ -188,22 +194,8 @@
                                             <td class="equip_name"><?php echo $row['equip_name'] ?></td>
                                             <td class="quantity"><?php echo $row['quantity'] ?></td>
                                             <td class="brand_model"><?php echo $row['brand_model'] ?></td>
-                                            <td>
-                                                <?php 
-                                                $equipId = $row['created_by'];
-                                                $stmt = $connect->prepare("SELECT * FROM users WHERE id = ?");
-                                                $stmt->bind_param("i", $equipId);
-                                                if ($stmt->execute()) {
-                                                    $result_user = $stmt->get_result();
-                                                    if ($result_user->num_rows > 0) {
-                                                        $user_row = $result_user->fetch_assoc();
-                                                        echo $user_row['name'];
-                                                    } else {
-                                                        echo "User not found"; 
-                                                    }
-                                                }
-                                                ?>
-                                            </td>
+                                            <td><?php echo $row['acquisition_date'] ?></td>
+                                           
                                              <td class= "location" style="font-weight: bold;"><?php echo $row['location'] ?></td>
                                             
                                             <td class="remarks">
@@ -226,6 +218,22 @@
                                                 <?php endif; ?>
                                             </td>
                                             <td><?php echo $row['maintenance'] ?></td>
+                                             <td>
+                                                <?php 
+                                                $equipId = $row['created_by'];
+                                                $stmt = $connect->prepare("SELECT * FROM users WHERE id = ?");
+                                                $stmt->bind_param("i", $equipId);
+                                                if ($stmt->execute()) {
+                                                    $result_user = $stmt->get_result();
+                                                    if ($result_user->num_rows > 0) {
+                                                        $user_row = $result_user->fetch_assoc();
+                                                        echo $user_row['name'];
+                                                    } else {
+                                                        echo "User not found"; 
+                                                    }
+                                                }
+                                                ?>
+                                            </td>
                                         </tr>
                                         <?php
                                         } 

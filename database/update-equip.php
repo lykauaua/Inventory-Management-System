@@ -7,6 +7,7 @@ $status = $_POST['status'];
 $quantity = $_POST['quantity'];
 $maintenance = $_POST['maintenance'];
 $location = $_POST['location'];
+$acquisition_date = $_POST['acquisition_date'];
 
 // Process remarks based on selection
 $remarksSelect = $_POST['remarksSelect'];
@@ -40,13 +41,13 @@ if ($file_data['tmp_name'] !== '') {
 try {
     // Save to the database
     $sql = "UPDATE equipment  
-            SET equip_name = ?, brand_model = ?, img = ?, serial_num = ?, status = ?, maintenance = ?, quantity = ?, location = ?, remarks = ?, updated_at = ?
+            SET equip_name = ?, brand_model = ?, img = ?, serial_num = ?, status = ?, maintenance = ?, quantity = ?, location = ?, remarks = ?, updated_at = ?, acquisition_date = ?
             WHERE ID = ?";
 
     include('connection.php');
     $stmt = $conn->prepare($sql);
     // Correct order of parameters in execute() function
-    $stmt->execute([$equip_name, $brand_model, $file_name_value, $serialNum, $status, $maintenance, $quantity, $location, $remarks, $updated_at, $equipId]);
+    $stmt->execute([$equip_name, $brand_model, $file_name_value, $serialNum, $status, $maintenance, $quantity, $location, $remarks, $updated_at, $acquisition_date, $equipId]);
 
     $response = [
         'success' => true,

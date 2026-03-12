@@ -41,3 +41,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 </script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script name="forMaintenance">
+    flatpickr("input[type=datetime-local]", {
+        enableTime: false,
+        dateFormat: "Y-m-d",
+    });
+</script>

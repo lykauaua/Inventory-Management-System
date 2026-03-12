@@ -266,6 +266,10 @@
 
             $.get('database/get-consumables.php', {ID: ID}, function(consumablesDetails) {
                 console.log(consumablesDetails);
+                // Ensure date values are properly formatted
+        let maintenanceDate = consumablesDetails.maintenance ? new Date(consumablesDetails.maintenance).toISOString().split('T')[0] : '';
+        let acquisitionDate = consumablesDetails.acquisition_date ? new Date(consumablesDetails.acquisition_date).toISOString().split('T')[0] : '';
+
 
        BootstrapDialog.confirm({
                 title:'Updating Equipment: <strong>'+ consumablesDetails.equip_name +'</strong>',
@@ -307,7 +311,9 @@
                         </div>\
                             <div class="appFormInputContainer">\
                                 <label for="maintenance" class="appFormAtt" >Maintenance Date:</label>\
-                                <input type="datetime-local" name="maintenance" class="form-control appFormInput" placeholder="Select date" value="'+ consumablesDetails.maintenance +'">\
+                                <input type="date" name="maintenance" class="form-control appFormInput" placeholder="Select date" value="'+ maintenanceDate +'">\
+                                <label for="acquisition_date" class="appFormAtt" >Acquisition Date:</label>\
+                                <input type="date" name="acquisition_date" class="form-control appFormInput" placeholder="Select date" value="'+ acquisitionDate +'">\
                             </div>\
                             <div class="appFormInputContainer">\
                                 <label for="brand_model" class="appFormAtt" >Brand Model</label>\

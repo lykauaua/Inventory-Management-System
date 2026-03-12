@@ -39,7 +39,7 @@
                         <h2 class="AddUserHeader"><i class = "fas fa-list-ul"></i> Tools List</h2>
                         <div class="AddUserContent">
                             <div class="Users">
-                                <table id = "myTable" style="
+                                <table id = "toolsTable" style="
                                 border: 1px solid #9f9e85 ;
                                 padding: 3px ;
                                 margin-top: 25px ;
@@ -123,7 +123,6 @@
                                                         <button type="submit" class="moreInfoBtn" style="border-color:#a8c7fa; color:#8781c6; margin-top: 7px;" 
                                                     onclick="openPopup()">More Info</button>
                                                     <?php include('partials/moreInfoT.php')?>
-
                                                 </td>
                                             </tr>
                                         <?php } ?>
@@ -149,9 +148,10 @@
 <?php include('partials/table-scripts.php');?>
 <script>
   $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#toolsTable').DataTable();
   });
 </script>
+
 <script>
    function script () {
     var vm = this;
@@ -255,6 +255,10 @@
 
             $.get('database/get-tools.php', {ID: ID}, function(toolsDetails) {
                 console.log(toolsDetails);
+                // Ensure date values are properly formatted
+        let maintenanceDate = toolsDetails.maintenance ? new Date(toolsDetails.maintenance).toISOString().split('T')[0] : '';
+        let acquisitionDate = toolsDetails.acquisition_date ? new Date(toolsDetails.acquisition_date).toISOString().split('T')[0] : '';
+
 
        BootstrapDialog.confirm({
                 title:'Updating Tools: <strong>'+ toolsDetails.equip_name +'</strong>',
@@ -291,10 +295,12 @@
                             <input type="text" id="remarksInput" name="remarksInput" placeholder="Add remarks" class="appFormInputRe" required style="display: inline;" value="'+ toolsDetails.remarks +'"/>\
                             \
                         </div>\
-                                <div class="appFormInputContainer">\
-                                        <label for="maintenance" class="appFormAtt" >Maintenance Date:</label>\
-                                        <input type="datetime-local" name="maintenance" class="form-control appFormInput" placeholder="Select date" value="'+ toolsDetails.maintenance +'">\
-                                    </div>\
+                        <div class="appFormInputContainer">\
+                    <label for="maintenance" class="appFormAtt">Maintenance Date:</label>\
+                    <input type="date" id="maintenance" name="maintenance" class="form-control appFormInput" placeholder="Select date" value="' + maintenanceDate + '">\
+                    <label for="acquisition_date" class="appFormAtt">Acquisition Date:</label>\
+                    <input type="date" id="acquisition_date" name="acquisition_date" class="form-control appFormInput" placeholder="Select date" value="' + acquisitionDate + '">\
+                </div>\
                                     <div class="appFormInputContainer">\
                                         <label for="brand_model" class="appFormAtt" >Brand Model</label>\
                                         <input type="text" id="brand_model" name="brand_model" class="appFormInput" style="width:30%;" placeholder=" brandX-1234" value="'+ toolsDetails.brand_model +'">\
@@ -310,6 +316,7 @@
                             <input type = "submit" value = "submit" id="editEquipSubmitBtn" class="hidden">\
                             <form>\
                             ',
+
                             callback: function(isUpdate){
                                 if(isUpdate){ // When user hits the ok button on the confirm console
                                     var imgInput = document.getElementById('editEquipImg');
@@ -347,6 +354,6 @@
     var script = new script;
     script.initialize();
 </script>
-<?php include('partials/app-scripts.php'); ?>
+
 </body>
 </html>

@@ -70,7 +70,10 @@
                         </div>
                             <div class="appFormInputContainer">
                                 <label for="maintenance" class="appFormAtt" >Maintenance Date:</label>
-                                <input type="datetime-local" name="maintenance" class="form-control appFormInput" placeholder="Select date">                             
+                                <input type="datetime-local" name="maintenance" class="form-control appFormInput" placeholder="Select date">
+
+                                <label for="acquisition_date" class="appFormAtt" >Acquisition Date:</label>
+                                <input type="datetime-local" name="acquisition_date" class="form-control appFormInput" placeholder="Select date">                            
                             </div>
 
                             <div class="appFormInputContainer">
@@ -118,17 +121,12 @@
                         </div>                    
                     </div>
                 </div>
-                <?php include('partials/app-scripts.php'); ?>
-               
-<script>
-    config = {
-        enableTime: true,
-        dateFormat: "Y-m-d",
-        altInput: true,
-        altFormat: "F j, Y (h:S K)"
-    
-    }
-    flatpickr("input[type=datetime-local]", config);
+
+<?php include('partials/app-scripts.php'); ?>
+<script src="js/sweetalert2.js"></script>              
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script name="forMaintenance">
+    flatpickr("input[type=datetime-local]",{});
 </script>
 </body>
 </html>

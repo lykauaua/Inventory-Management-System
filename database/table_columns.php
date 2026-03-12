@@ -5,15 +5,15 @@
 			'ID', 'name', 'email', 'password', 'created_at', 'updated_at'
 		],
 		'equipment' => [
-			'ID', 'equip_name', 'brand_model', 'img', 'quantity', 'created_at', 'created_by', 'updated_at', 'status', 'serial_num', 'maintenance', 'location', 'remarks'
+			'ID', 'equip_name', 'brand_model', 'img', 'quantity', 'created_at', 'created_by', 'updated_at', 'status', 'serial_num', 'maintenance', 'location', 'remarks', 'acquisition_date'
 
 		],
 		'tools' => [
-			'ID', 'equip_name', 'brand_model', 'img', 'quantity', 'created_at', 'created_by', 'updated_at', 'status', 'serial_num','maintenance', 'location', 'remarks'
+			'ID', 'equip_name', 'brand_model', 'img', 'quantity', 'created_at', 'created_by', 'updated_at', 'status', 'serial_num','maintenance', 'location', 'remarks', 'acquisition_date'
 
 		],
 		'consumables' => [
-			'ID', 'equip_name', 'brand_model', 'img', 'quantity', 'created_at', 'created_by', 'updated_at', 'status', 'serial_num','maintenance', 'location', 'remarks'
+			'ID', 'equip_name', 'brand_model', 'img', 'quantity', 'created_at', 'created_by', 'updated_at', 'status', 'serial_num','maintenance', 'location', 'remarks', 'acquisition_date'
 
 		]
 	]

@@ -37,5 +37,5 @@ A full-stack Web Application designed to digitize and streamline the Central Sto
 * **Environment:** XAMPP Local Server
 
 ## Connect with me!
-* **LinkedIn** www.linkedin.com/in/lykauaua
+* **LinkedIn** www.linkedin.com/in/LykaNarito
 * **Gmail** lalalyka.narito@gmail.com
